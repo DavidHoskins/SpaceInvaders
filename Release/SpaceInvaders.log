@@ -1,0 +1,17 @@
+﻿  Alien.cpp
+  AlienHandler.cpp
+  Bullet.cpp
+  Button.cpp
+  GameObject.cpp
+  InputHandler.cpp
+  main.cpp
+  MenuScreen.cpp
+  NetworkHandler.cpp
+  Player.cpp
+  SpaceInvader.cpp
+     Creating library C:\Users\NTI\documents\visual studio 2015\Projects\SpaceInvaders\Release\SpaceInvaders.lib and object C:\Users\NTI\documents\visual studio 2015\Projects\SpaceInvaders\Release\SpaceInvaders.exp
+  Generating code
+  All 334 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SpaceInvaders.vcxproj -> C:\Users\NTI\documents\visual studio 2015\Projects\SpaceInvaders\Release\SpaceInvaders.exe
+  SpaceInvaders.vcxproj -> C:\Users\NTI\documents\visual studio 2015\Projects\SpaceInvaders\Release\SpaceInvaders.pdb (Full PDB)

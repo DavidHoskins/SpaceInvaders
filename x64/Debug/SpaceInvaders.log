@@ -1,0 +1,13 @@
+﻿  Alien.cpp
+  AlienHandler.cpp
+  Bullet.cpp
+  Button.cpp
+  GameObject.cpp
+  InputHandler.cpp
+  main.cpp
+  MenuScreen.cpp
+  NetworkHandler.cpp
+  Player.cpp
+  SpaceInvader.cpp
+  Generating Code...
+sfml-graphics-s-d.lib(RenderStates.cpp.obj) : fatal error LNK1112: module machine type 'x86' conflicts with target machine type 'x64'
