@@ -7,22 +7,25 @@ MenuScreen:: MenuScreen()
 	m_BackGround.setSize(sf::Vector2f(800.0f, 800.0f));
 
 	m_spaceInvaderTexture = new sf::Texture();
-	m_spaceInvaderTexture->loadFromFile("Sprites/Space-Invaders-PNG-HD.png");
+	if(!m_spaceInvaderTexture->loadFromFile("Sprites/Space-Invaders-PNG-HD.png"))
+	{
+		std::cerr << "Error could not load spaceInvaderTexture" << std::endl;
+	}
 
 	m_spaceInvaderSprite = new sf::Sprite(*m_spaceInvaderTexture);
-	m_spaceInvaderSprite->setPosition(800.0f, 500.0f);
+	m_spaceInvaderSprite->setPosition(800.0f, 400.0f);
 
 	m_gameFont = new sf::Font();
 	if(!m_gameFont->loadFromFile("Fonts/sansation.ttf"))
 	{
-		std::cerr << "Error could not load file" << std::endl;
+		std::cerr << "Error could not load font file" << std::endl;
 	}
 
 	for (int i = 0; i < m_numberOfButtons; i++)
 	{
 		sf::Vector2f buttonPosition = sf::Vector2f(200.0f, 100.0f + (i * 150.0f));
 		sf::Vector2f buttonSize = sf::Vector2f(300.0f, 100.0f);
-		m_ScreenButtons[i] = new Button(m_gameFont, buttonTexts[i], m_characterSize, buttonPosition, buttonSize);
+		m_ScreenButtons[i] = new Button(m_gameFont, buttonTexts[i], m_characterSize, buttonPosition, buttonSize, sf::Color::Transparent);
 	}
 }
 

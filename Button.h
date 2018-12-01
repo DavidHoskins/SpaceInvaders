@@ -13,7 +13,9 @@ public:
 	virtual void render(sf::RenderWindow& window);
 	virtual void update();
 
-	Button(const sf::Font* buttonFont, const std::string& text, const int characterSize, sf::Vector2f& buttonPosition, sf::Vector2f& buttonSize);
+	Button(const sf::Font* buttonFont, const std::string& text, 
+		const int characterSize, const sf::Vector2f& buttonPosition, 
+		const sf::Vector2f& buttonSize, const sf::Color& buttonColor);
 	~Button();
 
 	void setHighlighted(const bool value) { m_highlighted = value; }

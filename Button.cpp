@@ -1,15 +1,15 @@
 #include "Button.h"
 
 //Constructor.
-Button::Button(const sf::Font* buttonFont,
-	const std::string& text, const int characterSize,
-	sf::Vector2f& buttonPosition, sf::Vector2f& buttonSize)
+Button::Button(const sf::Font* buttonFont, const std::string& text, 
+	const int characterSize, const sf::Vector2f& buttonPosition, 
+	const sf::Vector2f& buttonSize, const sf::Color& buttonColor)
 	:m_highlighted(false)
 {
 	//Initialization button.
 	setSize(buttonSize);
 	setPosition(buttonPosition);
-	setFillColor(sf::Color::Transparent);
+	setFillColor(buttonColor);
 
 	//Initialization text.
 	m_buttonText = new sf::Text(text, *buttonFont, characterSize);
