@@ -1,6 +1,4 @@
-﻿  Button.cpp
-  main.cpp
-  MenuScreen.cpp
+﻿  Player.cpp
   SpaceInvader.cpp
   Generating Code...
   SpaceInvaders.vcxproj -> D:\Downloads\SpaceInvadersCloneMulti-20181130T235115Z-001\SpaceInvadersCloneMulti\SpaceInvaders\Debug\SpaceInvaders.exe

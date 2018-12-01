@@ -211,7 +211,7 @@ void SpaceInvader::MainLoop()
 
 //Constructor.
 SpaceInvader::SpaceInvader()
-	:m_pWindow( new sf::RenderWindow(sf::VideoMode(m_kScreenWidth, m_kScreenHeight, 32), "Space Invaders", sf::Style::Default))
+	:m_pWindow( new sf::RenderWindow(sf::VideoMode(m_kScreenWidth, m_kScreenHeight, 32), "Space Invaders", sf::Style::Fullscreen))
 	, m_CurrentGameState(start)
 {
 	for (int i = 0; i < 2; i++)

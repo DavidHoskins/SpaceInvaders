@@ -6,6 +6,15 @@ AlienHandler::AlienHandler()
 	,m_iPoints(0)
 	,m_iSpeed(m_kStartSpeed)
 {
+	m_alienTexture = new sf::Texture();
+	if(!m_alienTexture->loadFromFile("Sprites/Space-Invaders-PNG-HD.png"))
+	{
+		std::cerr << "Error loading alien sprite" << std::endl;
+	}
+	for(int i = 0; i < m_kNumberOfAliens; i++)
+	{
+		m_Aliens[i].setSpriteTexture(m_alienTexture);
+	}
 	resetAliens();
 }
 

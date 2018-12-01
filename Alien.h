@@ -13,8 +13,8 @@ public:
 	Alien();
 	~Alien();
 
-	const int m_kWidth = 50;
-	const int m_kHeight = 50;
+	const int m_kWidth = 125;
+	const int m_kHeight = 100;
 
 	const int m_kNumBullets = 20;
 
@@ -26,6 +26,11 @@ public:
 	float getYPos(){return m_Position.y;}
 
 	bool m_bDestroyed;
+
+	void setSpriteTexture(sf::Texture* alienTexture);
+private:
+	sf::Sprite* m_alienSprite;
+
 };
 
 #endif //!ALIEN_H

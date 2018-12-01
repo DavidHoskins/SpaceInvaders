@@ -1,6 +1,8 @@
 #ifndef ALIENHANDLER_H
 #define ALIENHANDLER_H
 
+#include <iostream>
+
 #include <SFML/System/Time.hpp>
 
 #include "Alien.h"
@@ -31,6 +33,8 @@ private:
 	InputHandler m_Timer;
 
 	static const int m_kNumberOfAliens = 20;
+
+	sf::Texture* m_alienTexture;
 
 
 	int m_iPoints;

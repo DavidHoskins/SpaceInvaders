@@ -60,7 +60,7 @@ void Player::keyboardInput()
 	if (playerController.keyPressed(sf::Keyboard::D))
 	{
 		movement = m_Position.x + (static_cast<float>(m_kSpeed) * playerController.m_fDeltaTime);
-		if ((movement + m_kWidth) < 800.0f)
+		if ((movement + m_kWidth) < 1920.0f)
 		{
 			m_Position.x = movement;
 			m_Position.y = m_Position.y;

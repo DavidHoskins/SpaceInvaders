@@ -4,8 +4,21 @@
 void Alien::render(sf::RenderWindow& window)
 {
 	setPosition(m_Position);
-	window.draw(*this);
+	//window.draw(*this);
+	window.draw(*m_alienSprite);
 }
+
+//Sets the aliens' sprite texture to the passed through texture.
+void Alien::setSpriteTexture(sf::Texture* alienTexture)
+{
+	m_alienSprite = new sf::Sprite();
+	m_alienSprite->setTexture(*alienTexture);
+
+	float adjustedWidth = (m_alienSprite->getLocalBounds().width / m_kWidth);
+	float adjustedHeight = (m_alienSprite->getLocalBounds().height / m_kHeight);
+	m_alienSprite->setScale(m_alienSprite->getScale().x / adjustedWidth, m_alienSprite->getScale().y / adjustedHeight);
+}
+
 
 //main update for alien.
 void Alien::update()
@@ -13,6 +26,7 @@ void Alien::update()
 	if (!m_bDestroyed)
 	{
 		setPosition(m_Position.x, m_Position.y);
+		m_alienSprite->setPosition(getPosition());
 	}
 }
 
@@ -71,4 +85,5 @@ Alien::Alien()
 //Destructor.
 Alien::~Alien()
 {
+	delete m_alienSprite;
 }
