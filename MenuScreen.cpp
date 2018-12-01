@@ -3,16 +3,33 @@
 //Constructor. 
 MenuScreen:: MenuScreen()
 {
-	m_BackGround.setFillColor(sf::Color::Magenta);
+	m_BackGround.setFillColor(sf::Color::Black);
 	m_BackGround.setSize(sf::Vector2f(800.0f, 800.0f));
 
-	std::string buttonTexts[] = {"Start", "Options", "Exit"};
-
-	for (int i = 0; i < 4; i++)
+	m_gameFont = new sf::Font();
+	if(!m_gameFont->loadFromFile("Fonts/sansation.ttf"))
 	{
-		m_ScreenButtons[i].setPosition(sf::Vector2f(200.0f, 100.0f + (i * 150.0f)));
+		std::cerr << "Error could not load file" << std::endl;
+	}
+
+	for (int i = 0; i < m_numberOfButtons; i++)
+	{
+		sf::Vector2f buttonPosition = sf::Vector2f(200.0f, 100.0f + (i * 150.0f));
+		sf::Vector2f buttonSize = sf::Vector2f(300.0f, 100.0f);
+		m_ScreenButtons[i] = new Button(m_gameFont, buttonTexts[i], m_characterSize, buttonPosition, buttonSize);
 	}
 }
+
+//Destructor.
+MenuScreen::~MenuScreen()
+{
+	for(int i = 0; i < m_numberOfButtons; i++)
+	{
+		delete m_ScreenButtons[i];
+	}
+	delete m_gameFont;
+}
+
 
 //Main render update method. Rendering goes here.
 void MenuScreen::render(sf::RenderWindow& window)
@@ -20,7 +37,7 @@ void MenuScreen::render(sf::RenderWindow& window)
 	window.draw(m_BackGround);
 	for (int i = 0; i < 4; i++)
 	{
-		m_ScreenButtons[i].render(window);
+		m_ScreenButtons[i]->render(window);
 	}
 }
 
@@ -29,10 +46,19 @@ int MenuScreen::update(InputHandler& currentHandler, sf::RenderWindow& window)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (currentHandler.mouseWithinBounds(m_ScreenButtons[i].getPosition(), m_ScreenButtons[i].getSize(), window) && currentHandler.mouseSelected(sf::Mouse::Left))
+		if (currentHandler.mouseWithinBounds(m_ScreenButtons[i]->getPosition(), m_ScreenButtons[i]->getSize(), window))
 		{
-			return i;
+			m_ScreenButtons[i]->setHighlighted(true);
+			if (currentHandler.mouseSelected(sf::Mouse::Left)) 
+			{
+				return i;
+			}
 		}
+		else
+		{
+			m_ScreenButtons[i]->setHighlighted(false);
+		}
+		m_ScreenButtons[i]->update();
 	}
 	return -1;
 }

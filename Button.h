@@ -13,8 +13,21 @@ public:
 	virtual void render(sf::RenderWindow& window);
 	virtual void update();
 
-	Button();
+	Button(const sf::Font* buttonFont, const std::string& text, const int characterSize, sf::Vector2f& buttonPosition, sf::Vector2f& buttonSize);
+	~Button();
+
+	void setHighlighted(const bool value) { m_highlighted = value; }
+	bool getHighlighted() { return m_highlighted; }
 private:
+	sf::Text* m_buttonText;
+	const float m_outlineThickness = 2.0f;
+
+	bool m_highlighted;
+	const sf::Color primaryColor = sf::Color::Black;
+	const sf::Color secondaryColor = sf::Color::White;
+
+	void updateHighlightStatus();
+	void adjustText(sf::Text* textToAdjust);
 };
 
 #endif //!BUTTON_H

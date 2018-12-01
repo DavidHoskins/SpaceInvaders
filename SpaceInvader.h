@@ -23,8 +23,8 @@ public:
 
 private:
 	//Private consts.
-	const int m_kScreenWidth = 800;
-	const int m_kScreenHeight = 800;
+	const int m_kScreenWidth = 1920;
+	const int m_kScreenHeight = 1080;
 
 	//Private variables.
 	gameState m_CurrentGameState;
