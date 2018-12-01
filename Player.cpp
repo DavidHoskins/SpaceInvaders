@@ -66,24 +66,6 @@ void Player::keyboardInput()
 			m_Position.y = m_Position.y;
 		}
 	}
-	if (playerController.keyPressed(sf::Keyboard::W))
-	{
-		movement = m_Position.y - (static_cast<float>(m_kSpeed) * playerController.m_fDeltaTime);
-		if (movement > 0.0f)
-		{
-			m_Position.x = m_Position.x;
-			m_Position.y = movement;
-		}
-	}
-	if (playerController.keyPressed(sf::Keyboard::S))
-	{
-		movement = m_Position.y + (static_cast<float>(m_kSpeed) * playerController.m_fDeltaTime);
-		if ((movement + m_kWidth) < 800.0f)
-		{
-			m_Position.x = m_Position.x;
-			m_Position.y = movement;
-		}
-	}
 
 	if (checkCanFire() && playerController.keyPressed(sf::Keyboard::Space))
 	{

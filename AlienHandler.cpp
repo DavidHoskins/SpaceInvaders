@@ -75,11 +75,11 @@ const bool AlienHandler::checkCanFire()
 }
 
 //This method checks whether any of the aliens reached the edge.
-const bool AlienHandler::checkForEdge()
+const bool AlienHandler::checkForEdge(const int screenWidth)
 {
 	for (int i = 0; i < m_kNumberOfAliens; i++)
 	{
-		if (m_Aliens[i].m_Position.x <= 0 || (m_Aliens[i].m_Position.x + m_Aliens[i].m_kWidth) >= 800)
+		if (m_Aliens[i].m_Position.x <= 0 || (m_Aliens[i].m_Position.x + m_Aliens[i].m_kWidth) >= screenWidth)
 		{
 			if (!m_Aliens[i].m_bDestroyed)
 			{
@@ -92,9 +92,9 @@ const bool AlienHandler::checkForEdge()
 
 //This method moves the aliens in aliens array across the x axis, until it reaches the edge of the screen.
 //Then it moves the aliens down once on the y axis and moves in the opposite direction.
-const void AlienHandler::moveAliens()
+const void AlienHandler::moveAliens(const int screenWidth)
 {
-	if (!checkForEdge())
+	if (!checkForEdge(screenWidth))
 	{
 		for (int i = 0; i < m_kNumberOfAliens; i++)
 		{
@@ -138,11 +138,11 @@ void AlienHandler::render(sf::RenderWindow& window)
 }
 
 //main update for AlienHandler.
-void AlienHandler::update()
+void AlienHandler::update(const int screenWidth)
 {
 	int numDestroyed = 0;
 	m_Timer.m_fDeltaTime = static_cast<float>(m_Timer.m_Time.getElapsedTime().asSeconds());
-	moveAliens();
+	moveAliens(screenWidth);
 	for (int i = 0; i < m_kNumberOfAliens; i++)
 	{
 		m_Aliens[i].update();

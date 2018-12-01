@@ -24,5 +24,8 @@ private:
 
 	sf::Font* m_gameFont;
 	const int m_characterSize = 40;
+
+	sf::Sprite* m_spaceInvaderSprite;
+	sf::Texture* m_spaceInvaderTexture;
 };
 #endif //!MENUSCREEN_H

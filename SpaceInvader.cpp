@@ -35,7 +35,7 @@ void SpaceInvader::update()
 		m_CurrentPlayer[i].collisionDetection(m_CurrentAliens.m_Aliens);
 		m_CurrentAliens.collisionDetection(m_CurrentPlayer[i].m_Bullets);
 	}
-	m_CurrentAliens.update();
+	m_CurrentAliens.update(m_kScreenWidth);
 	m_CurrentInputHandler.inputUpdate(*m_pWindow);
 }
 
@@ -78,7 +78,7 @@ void SpaceInvader::localLogic()
 		m_CurrentPlayer[i].collisionDetection(m_CurrentAliens.m_Aliens);
 		m_CurrentAliens.collisionDetection(m_CurrentPlayer[i].m_Bullets);
 	}
-	m_CurrentAliens.update();
+	m_CurrentAliens.update(m_kScreenWidth);
 	m_CurrentInputHandler.inputUpdate(*m_pWindow);
 }
 

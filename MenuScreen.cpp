@@ -6,6 +6,12 @@ MenuScreen:: MenuScreen()
 	m_BackGround.setFillColor(sf::Color::Black);
 	m_BackGround.setSize(sf::Vector2f(800.0f, 800.0f));
 
+	m_spaceInvaderTexture = new sf::Texture();
+	m_spaceInvaderTexture->loadFromFile("Sprites/Space-Invaders-PNG-HD.png");
+
+	m_spaceInvaderSprite = new sf::Sprite(*m_spaceInvaderTexture);
+	m_spaceInvaderSprite->setPosition(800.0f, 500.0f);
+
 	m_gameFont = new sf::Font();
 	if(!m_gameFont->loadFromFile("Fonts/sansation.ttf"))
 	{
@@ -28,6 +34,8 @@ MenuScreen::~MenuScreen()
 		delete m_ScreenButtons[i];
 	}
 	delete m_gameFont;
+	delete m_spaceInvaderSprite;
+	delete m_spaceInvaderTexture;
 }
 
 
@@ -39,6 +47,7 @@ void MenuScreen::render(sf::RenderWindow& window)
 	{
 		m_ScreenButtons[i]->render(window);
 	}
+	window.draw(*m_spaceInvaderSprite);
 }
 
 //Main update method. Logic goes here.

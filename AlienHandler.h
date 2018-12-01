@@ -6,14 +6,14 @@
 #include "Alien.h"
 #include "InputHandler.h"
 
-class AlienHandler: public GameObject
+class AlienHandler
 {
 private:
 
 	const bool checkCanFire();
-	const bool checkForEdge();
+	const bool checkForEdge(const int screenWidth);
 
-	const void moveAliens();
+	const void moveAliens(const int screenWidth);
 
 	//Fire variables.
 	int m_iTimeSinceLastFire;
@@ -39,8 +39,8 @@ public:
 	AlienHandler();
 	~AlienHandler();
 
-	virtual void render(sf::RenderWindow& window);
-	virtual void update();
+	void render(sf::RenderWindow& window);
+	void update(const int screenWidth);
 	void clientUpdate();
 
 	const void resetAliens();
